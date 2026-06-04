@@ -5,6 +5,7 @@
 #include  <cstdlib>
 #include  "tree.h"
 #include <algorithm>
+
 PMTree::PMTree(const std::vector<char>& symbols) {
   root = new Node('\0');
   std::vector<char> sorted = symbols;
