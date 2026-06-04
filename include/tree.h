@@ -28,6 +28,7 @@ class PMTree {
   static void buildSubtree(Node* node, std::vector<char> remaining);
 
   static void deleteSubtree(Node* node);
+  static void collectPerms(const Node* node, std::vector<char>& current, std::vector<std::vector<char>>& out);
 };
 
 #endif  // INCLUDE_TREE_H_
