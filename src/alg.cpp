@@ -4,6 +4,7 @@
 #include  <fstream>
 #include  <locale>
 #include  <cstdlib>
+#include <vector>
 #include  "tree.h"
 
 PMTree::PMTree(const std::vector<char>& symbols) {
@@ -46,7 +47,9 @@ void PMTree::deleteSubtree(Node* node) {
   delete node;
 }
 
-void PMTree::collectPerms(const Node* node, std::vector<char>& current, std::vector<std::vector<char>>& out) {
+void PMTree::collectPerms(const Node* node,
+                          std::vector<char>& current,
+                          std::vector<std::vector<char>>& out) {
   if (node->children.empty()) {
     out.push_back(current);
     return;
