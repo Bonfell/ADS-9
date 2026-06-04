@@ -46,14 +46,12 @@ void PMTree::deleteSubtree(Node* node) {
   delete node;
 }
 
-static void collectPerms(const PMTree::Node* node,
-                         std::vector<char>& current,
-                         std::vector<std::vector<char>>& out) {
+void PMTree::collectPerms(const Node* node, std::vector<char>& current, std::vector<std::vector<char>>& out) {
   if (node->children.empty()) {
     out.push_back(current);
     return;
   }
-  for (const PMTree::Node* child : node->children) {
+  for (const Node* child : node->children) {
     current.push_back(child->value);
     collectPerms(child, current, out);
     current.pop_back();
@@ -63,7 +61,7 @@ static void collectPerms(const PMTree::Node* node,
 std::vector<std::vector<char>> getAllPerms(const PMTree& tree) {
   std::vector<std::vector<char>> result;
   std::vector<char> current;
-  collectPerms(tree.root, current, result);
+  PMTree::collectPerms(tree.root, current, result);
   return result;
 }
 
